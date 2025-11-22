@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Анкета пользователя</title>
+</head>
+<body class="container mt-5">
+    <h1 class="mb-4 text-center">Заполните анкету</h1>
+
+
+    <form method="post" class="row g-3 needs-validation" novalidate>
+        <div class="col-md-6">
+            <label for="name" class="form-label">Ваше имя:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+            <div class="invalid-feedback">Это поле обязательно.</div>
+        </div>
+        <div class="col-md-6">
+            <label for="city" class="form-label">Ваш город:</label>
+            <input type="text" id="city" name="city" class="form-control" required>
+            <div class="invalid-feedback">Это поле обязательно.</div>
+        </div>
+        <div class="col-md-12">
+            <label for="hobby" class="form-label">Ваши увлечения:</label>
+            <textarea id="hobby" name="hobby" rows="3" class="form-control" required></textarea>
+            <div class="invalid-feedback">Это поле обязательно.</div>
+        </div>
+        <div class="col-md-6">
+            <label for="age" class="form-label">Ваш возраст:</label>
+            <input type="number" id="age" name="age" min="1" max="150" class="form-control" required>
+            <div class="invalid-feedback">Это поле обязательно.</div>
+        </div>
+        <div class="col-12 d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </div>
+    </form>
+
+
+    {% if submitted %}
+        <hr class="my-4">
+        <div class="alert alert-success p-4 mb-0" role="alert">
+            <strong>Спасибо!</strong> Ваши данные успешно сохранены.<br>
+            <ul class="list-group list-group-flush my-3">
+                <li class="list-group-item">Имя: {{ name }}</li>
+                <li class="list-group-item">Город: {{ city }}</li>
+                <li class="list-group-item">Хобби: {{ hobby }}</li>
+                <li class="list-group-item">Возраст: {{ age }} лет</li>
+            </ul>
+        </div>
+    {% endif %}
+</body>
+</html>
